@@ -1,12 +1,12 @@
 //API Key -  54f0cfa3
-//Example-http://www.omdbapi.com/?i=tt3896198&apikey=54f0cfa3
+//Example-https://www.omdbapi.com/?i=tt3896198&apikey=54f0cfa3
 
 const key = '54f0cfa3';
 
 var searchInput = document.getElementById('Input');
 var displaySearchList = document.getElementsByClassName('fav-container');
 
-fetch('http://www.omdbapi.com/?i=tt3896198&apikey=54f0cfa3')
+fetch('https://www.omdbapi.com/?i=tt3896198&apikey=54f0cfa3')
 .then(res => res.json())
 .then(data => console.log(data));
 
@@ -18,7 +18,7 @@ async function singleMovie() {
     var urlQueryParams = new URLSearchParams(window.location.search);
     var id = urlQueryParams.get('id')
     console.log(id);
-    const url = `http://www.omdbapi.com/?i=${id}&apikey=${key}`
+    const url = `https://www.omdbapi.com/?i=${id}&apikey=${key}`
     const res = await fetch (`${url}`);
     const data = await res.json();
     console.log(data);
@@ -134,7 +134,7 @@ async function displayMovieList(movies){
 //When the user is searching for the movie then a list of the related movie will be displayed and list is fet #
 async function findMovies(){
     console.log(searchInput.value);
-    const url = `http://www.omdbapi.com/?s=${(searchInput.value).trim()}&page=1&apikey=${key}`
+    const url = `https://www.omdbapi.com/?s=${(searchInput.value).trim()}&page=1&apikey=${key}`
     const res = await fetch(`${url}`);
     const data = await res.json();
    
@@ -155,7 +155,7 @@ async function favoritesMovieLoader (){
         var id = localStorage.getItem(i);
         if (id !=null){
             //Fetching the movie through id 
-            const url =`http://www.omdbapi.com/?i=${id}&plot=full&apikey=${key}`
+            const url =`https://www.omdbapi.com/?i=${id}&plot=full&apikey=${key}`
             const res = await fetch (`${url}`);
             const data = await res.json();
             console.log(data);
